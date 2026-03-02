@@ -1,0 +1,256 @@
+#1
+print("Olá Mundo!")
+
+#2
+a = int(input("Digite um número: "))
+print(f"Antecessor: {a-1}, Sucessor: {a+1}")
+
+#3
+n1, n2 = float(input("Primeiro Valor: ")), float(input("segundo valor: "))
+print(f"Soma: {n1 + n2}")
+
+#4
+n1, n2, n3 = float(input("Digite a Nota 1")), float(input("Digite a Nota 2")), float(input("Digite a Nota 3"))
+print(f"Média: {(n1+n2+n3)/3:.2f}")
+
+#5
+m = float(input("Valor em Metros: "))
+print(f"{m}m são {m*100}cm")
+
+#6
+n = int(input("Digite de qual nuúmero você quer a tabuada:  "))
+for i in range(1, 11): print(f"{n} x {i} = {n*i}")
+
+#7
+c = float(input("Digite um valor em °C: "))
+print(f"Equivale a {(c * 9/5) + 32} °F: ")
+
+#8
+b, h = float(input("Base do Triângulo: ")), float(input("Altura do Triângulo: "))
+print(f"Área do Triângulo: {b * h}")
+
+#9
+n = int(input("digite um número: "))
+print("Par" if n % 2 == 0 else "Ímpar")
+
+#10
+n = float(input("Número: "))
+if n > 0: print("Positivo")
+elif n < 0: print("Negativo")
+else: print("neutro")
+
+#11
+peso = float(input("Digite seu peso (kg): "))
+altura = float(input("Digite sua altura em metros (ex: 1.70): "))
+
+#-----Calculo IMC-----
+imc = peso / (altura ** 2)
+
+#-----resultado----
+print(f"Seu IMC é: {imc:.2f}")
+
+#-----Classificando o IMC----
+if imc < 18.5:
+    print("Classificação: Abaixo do peso")
+elif 18.5 <= imc < 25:
+    print("Classificação: Peso normal")
+elif 25 <= imc < 30:
+    print("Classificação: Sobrepeso")
+else:
+    print("Classificação: Obesidade")
+
+#12
+lista = [float(input("Digite um valor: ")) for _ in range(3)]
+print(f"Maior: {max(lista)}")
+
+#13
+n = int(input("Digite um número: "))
+print("É múltiplo de 3" if n % 3 == 0 else "Não é múltiplo de 3 ")
+
+#14
+import math
+print(math.factorial(int(input("Digite o número a ser fatoriado "))))
+
+#15
+a, b = 0, 1
+for _ in range(10):
+    print(a, end=" ")
+    a, b = b, a + b
+
+#16
+for i in range(1, 101): print(i)
+
+#17
+n = int(input("N: "))
+print(sum(range(1, n + 1)))
+
+#18
+soma = 0
+while True:
+    n = int(input("0 para sair: "))
+    if n == 0: break
+    soma += n
+print(soma)
+
+#19
+print(len([x for x in range(1, 51) if x % 2 == 0]))
+
+#20
+n = input("Digite um número: ")
+print(n[::-1])
+
+#21
+s = input("Digite uma oalavra: ").lower()
+print("É palíndromo" if s == s[::-1] else "Não é")
+
+#22
+palavra = input("Escreva uma palavra: ").lower()
+print(sum(1 for letra in palavra if letra in "aeiou"))
+
+#23
+print(input().replace(" ", "-"))
+
+#24
+L = [10, 5, 20, 1]
+print(f"Maior: {max(L)}, Menor: {min(L)}")
+
+#25
+L = [3, 1, 4]; L.sort(); print(L)
+
+#26
+L = list(set([1, 2, 2, 3])); print(L)
+
+#27
+print(sum([10, 20, 30]))
+
+#28
+L = [1, 2, 2, 3]; print(L.count(2))
+
+#29
+d = {"nome": "Cole", "idade": 30}
+print(f"{d['nome']} tem {d['idade']} anos")
+
+#30
+
+#------Dicionário com dados iniciais------
+perfil = {"nome": "Matheus", "idade": 20}
+print(f"Dados atuais: Nome: {perfil['nome']} | Idade: {perfil['idade']}")
+
+#novos dados
+novo_nome = input("Digite o novo nome: ")
+nova_idade = int(input("Digite a nova idade: "))
+
+#------Atualizaçao chaves do dicionário-----
+perfil["nome"] = novo_nome
+perfil["idade"] = nova_idade
+
+#-----resultado final-----
+print("\nATUALIZAÇÃO")
+print(f"Nome: {perfil['nome']}")
+print(f"Idade: {perfil['idade']}")
+
+#31
+def somar(n1, n2):
+    return n1 + n2
+
+# Utilizador insere os valores
+a = float(input("Digite o primeiro número para somar: "))
+b = float(input("Digite o segundo número para somar: "))
+
+resultado = somar(a, b)
+print(f"O resultado da soma é: {resultado}")
+
+#32
+def n_primo(n):
+    if n < 2: return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0: return False
+    return True
+
+# insere o valor
+num = int(input("Insira um número: "))
+if n_primo(num):
+    print(f"O número {num} é primo!")
+else:
+    print(f"O número {num} NÃO é primo.")
+
+#33
+import math
+
+def calcular_area(raio):
+    return math.pi * (raio ** 2)
+
+#insere o raio
+r = float(input("Insira o valor do raio do círculo: "))
+print(f"A área do círculo é: {calcular_area(r):.2f}")
+
+#34
+def fatorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * fatorial(n - 1)
+
+# Utilizador insere o número
+num = int(input("Qual número deseja saber o fatorial? "))
+print(f"O fatorial de {num} é {fatorial(num)}")
+
+#35
+#numero de 1 a 10
+quadrados = [x**2 for x in range(1, 11)]
+
+#Valores
+print("Os quadrados dos números de 1 a 10 são:")
+print(*quadrados, sep=", ")
+
+#36
+#insere números 
+entrada = input("Digite números separados por espaço: ")
+lista_num = [int(x) for x in entrada.split()]
+
+pares = [n for n in lista_num if n % 2 == 0]
+print(f"Os números pares que digitou são: {pares}")
+
+#37
+nome_arquivo = input("Digite o nome do ficheiro para ler (ex: lista.txt): ")
+
+try:
+    with open(nome_arquivo, "r") as f:
+        total = len(f.readlines())
+        print(f"O ficheiro '{nome_arquivo}' tem {total} linhas.")
+except FileNotFoundError:
+    print("Esse ficheiro não existe")
+
+#38
+nome_arq = input("Como se deve chamar o arquivo? (ex: notas.txt): ")
+texto = input("O que deseja escrever nele? ")
+
+with open(nome_arq, "w") as f:
+    f.write(texto)
+
+print(f"O ficheiro '{nome_arq}' foi criado com o seu texto.")
+
+#39
+opcao = ""
+while opcao != "0":
+    print("\n MENU ")
+    print("1 - Mostrar Mensagem")
+    print("0 - Sair")
+    opcao = input("Escolha uma opção: ")
+    
+    if opcao == "1":
+        msg = input("Digite algo para eu repetir: ")
+        print(f"Você disse: {msg}")
+    elif opcao == "0":
+        print("Encerrando programa...")
+
+print(" DIVISÃO ")
+try:
+    n1 = float(input("Informe o dividendo: "))
+    n2 = float(input("Informe o divisor: "))
+    resultado = n1 / n2
+    print(f"Resultado: {resultado}")
+except ZeroDivisionError:
+    print("Erro: Não é possível dividir por zero")
+except ValueError:
+    print("Erro: Por favor, use apenas números.")
+    
