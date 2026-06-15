@@ -83,9 +83,9 @@ def modulo_frequencia():
     quantidade_aulas = int(input("Digite a quantidade de aulas: "))
     
     for i in range(1, quantidade_aulas + 1):
-        frequencia = input(f"Digite a presença da aula {i} (P para presente ou F para falta): ").lower()
-        while frequencia not in ["p", "f"]:
-            frequencia = input("Valor inválido. Digite apenas p ou f: ").lower()
+        frequencia = input(f"Digite a presença da aula {i} (P para presente ou F para falta): ").upper().strip()
+        while frequencia not in ["P", "F"]:
+            frequencia = input("Valor inválido. Digite apenas p ou f: ").upper().strip()
         frequencias.append(frequencia)
         
     percentual = calcular_percentual_presenca(frequencias)
