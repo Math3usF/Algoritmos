@@ -1,3 +1,11 @@
+''' SISTEMA DE GESTÃO ACADÊMICA que permite realizar 
+    - cadastro de alunos
+    - cálculo de médias e situação
+    - frequência escolar
+    - ranking de notas
+    - histórico e CRA
+'''
+
 # LISTAS GLOBAIS
 
 alunos = []
@@ -98,16 +106,30 @@ def mostrar_ranking(dicionario_alunos):
 
 def modulo_ranking():
     dicionario_alunos = {}
-    quantidade = int(input("Digite a quantidade de alunos para o ranking: "))
+    
+    # Validação para garantir que o usuário digite um número inteiro
+    while True:
+        try:
+            quantidade = int(input("Digite a quantidade de alunos para o ranking: "))
+            if quantidade <= 0:
+                print("Por favor, digite um número maior que zero.")
+                continue
+            break
+        except ValueError:
+            print("Valor inválido. Digite um número inteiro.")
     
     for i in range(1, quantidade + 1):
+        # 1. Pede o nome primeiro
+        nome = input(f"Digite o nome do aluno {i}: ").strip()
+        
+        # 2. Pede a média usando o nome do aluno e faz a validação
         while True:
             try:
-                media = float(input(f"Digite a média do aluno {i}: "))
+                media = float(input(f"Digite a média de {nome}: "))
                 break
             except ValueError:
-                print("Valor inválido. Digite um número.")
-        nome = input(f"Digite o nome do aluno {i}: ")
+                print("Valor inválido. Digite um número para a média (ex: 8.5).")
+                
         dicionario_alunos[nome] = media
         
     mostrar_ranking(dicionario_alunos)
@@ -220,6 +242,7 @@ def main():
         else:
             print("Opção inválida. Por favor, tente novamente.")
 
-# Inicializa o programa
 
-main()
+# Inicializa o programa
+if __name__ == "__main__":
+    main()
